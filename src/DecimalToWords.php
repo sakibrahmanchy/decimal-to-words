@@ -3,8 +3,8 @@
 class DecimalToWords
 {
     public static function convert($number, $currency_whole = '', $currency_decimal = '',
-                             $case = null, $decimal_denominator='Point', $ending_denominator = null) {
+                             $case = null) {
         return (new Basic())->convert($number,$currency_whole,
-                                $currency_decimal,$case,$decimal_denominator, $ending_denominator);
+                                $currency_decimal,$case);
     }
 }

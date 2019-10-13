@@ -8,12 +8,13 @@ class Basic implements DecimalToWordsInterface
     private $ten = ['', '', 'Twenty','Thirty','Forty','Fifty', 'Sixty','Seventy','Eighty','Ninety'];
     private $denotes = ['Crore','Lakh','Thousand','Hundred','',''];
 
-    public function convert($number, $currency_whole = '', $currency_decimal = '',
-                            $case = null, $decimal_denominator = 'Point',
-                            $ending_denominator = null) {
-        if($number == 0.0)  return $case ?
-                call_user_func($this->resolveCallable($case),"Zero $ending_denominator")
-                : "Zero $ending_denominator";
+    public function convert($number, $currency_whole = '', $currency_decimal = '', $case = null) {
+        if ($number == 0.0)  {
+            return $case ?
+                call_user_func($this->resolveCallable($case),trim("Zero $currency_whole"))
+                : trim("Zero $currency_whole");
+        }
+        
         $number = number_format((float)$number, 2, '.', '');
         $decimals = null;
         $numberToStr = $number."";
@@ -23,8 +24,9 @@ class Basic implements DecimalToWordsInterface
         }
         $str = $this->getWords($number);
         $str .= $currency_whole." ";
+        $decimal_denominator = $currency_decimal ? null : 'Point';
         $str .= $decimals ? "$decimal_denominator ".$this->getWords($decimals)."$currency_decimal " : "";
-        $str .= $ending_denominator;
+        $str = trim(preg_replace('/\s+/', ' ', $str));
         return $case ? call_user_func($this->resolveCallable($case),$str) : $str;
     }
 
