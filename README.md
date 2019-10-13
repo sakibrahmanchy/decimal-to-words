@@ -4,7 +4,7 @@
 A simple decimal to word converter (Decimal numbers, currency etc.)
 
 ## Installation
-composer require sakibrahamanchy/decimal-to-words
+`composer require sakibrahamanchy/decimal-to-words`
 
 ## Usage
 ```
