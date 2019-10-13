@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/sakibrahmanchy/decimal-to-words.svg?style=svg)](https://circleci.com/gh/sakibrahmanchy/decimal-to-words)
+
 # decimal-to-words
 A simple decimal to word converter (Decimal numbers, currency etc.)
 
