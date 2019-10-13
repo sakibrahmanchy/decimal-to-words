@@ -5,8 +5,21 @@
 A simple decimal to word converter (Decimal numbers, currency etc.)
 
 ## Installation
-`composer require sakibrahamanchy/decimal-to-words`
+````
+composer require sakibrahamanchy/decimal-to-words
+````
 
+## Configurations
+### Methods
+   ```
+   convert($number, $currency_whole = '', $currency_decimal = '', $case = null)
+   ```
+   
+   <b>$number</b> - Input number, can be either decimal or ineger, REQUIRED  
+   <b>$currency_whole</b> - Currency Denominator for whole number, Optional, e.g: dollar, taka, rupee etc  
+   <b>$currency_decimal</b> - Currency Denominator for decimal number, Optional, e.g: cents, paisa etc  
+   <b>$case</b> - Case of the output sring, Optional, Can be either 'upper', 'lower' or null  
+   
 ## Usage
 ```
 use SakibRahaman\DecimalToWords\DecimalToWords;
